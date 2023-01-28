@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import Rus from './Ru/Rus';
 import Eng from './En/Eng';
+import Del from './De/Del';
 
 // import Ru from './Ru';
 // import En from './En';
@@ -16,6 +17,7 @@ root.render(
   <React.StrictMode>
     <Rus />
     <Eng />
+    <Del />
     {/* <Ru faker={faker} /> */}
     {/* <En faker={faker} /> */}
     {/* <De faker={faker} /> */}

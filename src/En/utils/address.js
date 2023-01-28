@@ -23,7 +23,7 @@ const evenUser = (secondaryAddress, buildingNumber, street ,cityName, state, zip
     return `${secondaryAddress} ${buildingNumber} ${street} ${cityName} ${state} ${zipCode}`
 }
 
-const oddUser = (buildingNumber, street ,cityName, state, zipCode) => {
+const oddUser = (secondaryAddress, buildingNumber, street ,cityName, state, zipCode) => {
     return `${buildingNumber}, ${street}, ${cityName} ${state}, ${zipCode}`
 }
 

@@ -4,42 +4,32 @@ const De = ({ faker }) => {
 
     const json = [];
 
-    const uuid = [];
-    const firstName = [];
-    const lastName = [];
-    const city = [];
-    const address = [];
-    const phone = [];
+    const secondaryAddress = [];
+    const buildingNumber = [];
+    const street = [];
+    const cityName = [];
+    const country = [];
+    const zipCode = [];
   
     const data = {
-      uuid,
-      firstName,
-      lastName,
-      city,
-      address,
-      phone
+        street,
+        buildingNumber,
+        secondaryAddress,
+        zipCode,
+        cityName,
+        country
     };
   
     
     const getJson = () => {
       for (let i=0; i<100; i++) {
-          const [n, f]= faker.name.fullName().split(' ');
   
-          uuid.push(faker.datatype.uuid());
-          firstName.push(n);
-          lastName.push(f);
-          city.push(faker.address.cityName());
-          address.push(faker.address.streetAddress(true));
-          phone.push(faker.phone.phoneNumber('+49 ## ###-##-##'));
-
-
-          json.push({
-            uuid: faker.datatype.uuid(),
-            fullName: faker.name.fullName(),
-            cityName: faker.address.cityName(),
-            streetAddress: faker.address.streetAddress(true), 
-            phoneNumber: faker.phone.phoneNumber('+49 ## ###-##-##')
-          })
+        secondaryAddress.push(faker.address.secondaryAddress());
+        buildingNumber.push(faker.address.buildingNumber());
+        street.push(faker.address.street());
+        cityName.push(faker.address.cityName());
+        country.push(faker.address.country());
+        zipCode.push(faker.address.zipCode());
       }
     }
     

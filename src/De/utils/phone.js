@@ -11,5 +11,5 @@ export const generatePhone = (startSeed, userNumber, {first, second, third, cod}
     const secondRes = Math.floor((validUserNumber % codLength % firstLength) / secondLength);
     const thirdRes = validUserNumber % codLength % firstLength % secondLength;
 
-    return `+7 (${cod[codRes]}) ${first[firstRes]}${second[secondRes]}${third[thirdRes]}`;
+    return `+ (49 ${cod[codRes]}) ${first[firstRes]}${second[secondRes]}${third[thirdRes]}`;
 }
