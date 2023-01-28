@@ -4,73 +4,32 @@ const En = ({ faker }) => {
 
     const json = [];
 
-    const uuid = [];
-    const firstName = [];
-    const lastName = [];
-    const city = [];
-    const address = [];
-    const phone = [];
-    const fullName = [];
-    const cityName = [];
-    const phoneNumber = [];
-    const cityPrefix = [];
-    const citySuffix = [];
-    const country = [];
-    const county = [];
-    const direction = [];
-    const state = [];
+    const secondaryAddress = [];
+    const buildingNumber = [];
     const street = [];
-    const streetAddress = [];
-    const streetName = [];
-    const streetPrefix = [];
-    const streetSuffix = [];
+    const cityName = [];
+    const state = [];
+    const zipCode = [];
   
     const data = {
-      uuid,
-      firstName,
-      lastName,
-      city,
-      address,
-      phone,
-      fullName,
-      cityName,
-      phoneNumber,
-      cityPrefix,
-      citySuffix,
-      country,
-      county,
-      direction,
-      state,
-      street,
-      streetAddress,
-      streetName,
-      streetPrefix,
-      streetSuffix
+        secondaryAddress,
+        buildingNumber,
+        street,
+        cityName,
+        state,
+        zipCode
     };
   
     
     const getJson = () => {
       for (let i=0; i<100; i++) {
-          const [n, f]= faker.name.fullName().split(' ');
   
-          uuid.push(faker.datatype.uuid());
-          firstName.push(n);
-          lastName.push(f);
-          city.push(faker.address.cityName());
-          cityPrefix.push(faker.address.cityPrefix());
-          citySuffix.push(faker.address.citySuffix());
-          county.push(faker.address.county());
-          direction.push(faker.address.direction());
-          state.push(faker.address.state());
-          street.push(faker.address.street());
-          streetAddress.push(faker.address.streetAddress());
-          streetName.push(faker.address.streetName());
-          streetPrefix.push(faker.address.streetPrefix());
-          streetSuffix.push(faker.address.streetSuffix());
-      
-          
-          address.push(faker.address.streetAddress(true));
-          phone.push(faker.phone.phoneNumber('+1 ### ####-##-##'));
+        secondaryAddress.push(faker.address.secondaryAddress());
+        buildingNumber.push(faker.address.buildingNumber());
+        street.push(faker.address.street());
+        cityName.push(faker.address.cityName());
+        state.push(faker.address.state());
+        zipCode.push(faker.address.zipCode());
       }
     }
     

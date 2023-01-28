@@ -1,7 +1,7 @@
 import data from './json/index';
 import generate from './utils/index';
 
-const En = () => {
+const Del = () => {
   return (
     <table className='table is-striped is-fullwidth' >
         <thead>
@@ -26,4 +26,4 @@ const En = () => {
   )
 }
 
-export default En;
+export default Del
