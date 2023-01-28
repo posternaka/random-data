@@ -1,25 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-import Rus from './Ru/Rus';
-import Eng from './En/Eng';
-import Del from './De/Del';
-
-// import Ru from './Ru';
-// import En from './En';
-// import De from './De';
-
 import 'bulma/css/bulma.css';
-import { faker } from 'https://cdn.skypack.dev/@faker-js/faker';
+
+
+import App from './App';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Rus />
-    <Eng />
-    <Del />
-    {/* <Ru faker={faker} /> */}
-    {/* <En faker={faker} /> */}
-    {/* <De faker={faker} /> */}
+    <App />
   </React.StrictMode>
 );

@@ -50,30 +50,6 @@ const Ru = ({ faker }) => {
 
   return (
     <div></div>
-    // <table className='table is-striped is-fullwidth' >
-    //         <thead>
-    //             <tr>
-    //                 <th>№</th>
-    //                 <th>Name</th>
-    //                 <th>City</th>
-    //                 <th>Street</th>
-    //                 <th>Phone</th>
-    //             </tr>
-    //         </thead>
-    //         <tbody>
-    //             {
-    //               json.map((user, index) => (
-    //                     <tr key={user.uuid}>
-    //                         <td>{index + 1}</td>
-    //                         <td>{user.fullName}</td>
-    //                         <td>{user.cityName}</td>
-    //                         <td>{user.streetAddress}</td>
-    //                         <td>{user.phoneNumber}</td>
-    //                     </tr>
-    //                 ))
-    //             }
-    //         </tbody>
-    //     </table>
   )
 }
 
