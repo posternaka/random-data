@@ -7,12 +7,24 @@ import generateDe from './De/utils/index';
 
 export const LOCALE = {
     RU: 'ru',
-    EN: 'en',
+    EN: 'en', 
     DE: 'de',
 };
 
 export const MAP_LOCALE = {
-    [LOCALE.RU]: { data: dataRu, generate: generateRu },
-    [LOCALE.EN]: { data: dataEn, generate: generateEn },
-    [LOCALE.DE]: { data: dataDe, generate: generateDe },
+    [LOCALE.RU]: { 
+        data: dataRu, 
+        generate: generateRu, 
+        alphabet: 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+    },
+    [LOCALE.EN]: { 
+        data: dataEn, 
+        generate: generateEn, 
+        alphabet: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' 
+    },
+    [LOCALE.DE]: { 
+        data: dataDe, 
+        generate: generateDe, 
+        alphabet: 'ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜßabcdefghijklmnopqrstuvwxyzäöüß' 
+    },
 };
