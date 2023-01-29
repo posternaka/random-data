@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { randomInteger } from './helpers/helpers';
+import { randomInteger } from './helpers/random';
 import { LOCALE } from './utils/localizeUtil';
 import Users from './components/Users';
 
@@ -10,6 +10,24 @@ const App = () => {
     const [page, setPage] = useState(1);
     
     const array = Array.from(Array(page + 1).keys()).slice(1);
+
+    const checkRange = (e) => {
+        if (e >= 1000) {
+            return setRangeNumber(1000)
+        } else if (e <= 0) {
+            return setRangeNumber(0);
+        }
+
+        return setRangeNumber(e);
+    }
+
+    const checkRandom = (e) => {
+        if (e >= 10_000_000) {
+            return setRandomNumber(10_000_000)
+        }
+
+        return setRandomNumber(e);
+    }
 
     return (
         <div>
@@ -25,12 +43,12 @@ const App = () => {
                 </div>
 
                 <label className=' mr-6'>
-                    <input className="input" type="number" placeholder="53" value={rangeNumber * 100} onChange={(e) => setRangeNumber(e.target.value / 100)} /> 
+                    <input className="input" type="number" placeholder="53" value={rangeNumber} onChange={(e) => checkRange(e.target.value)} /> 
                     <input type="range" value={rangeNumber} min="0" max="10"  step="0.25" onChange={(e) => setRangeNumber(e.target.value)} />
                 </label>
                 
                 <label>
-                    <input className="input" type="number" min="1" placeholder="174" value={randomNumber} onChange={(e) => setRandomNumber(e.target.value)} />
+                    <input className="input" type="number" min="1" placeholder="174" value={randomNumber} onChange={(e) => checkRandom(e.target.value)} />
                     <button className="button mr-5" onClick={() => setRandomNumber(randomInteger())}>Random</button>
                     <button className="button" onClick={() => setRandomNumber(1)}>Reset</button>
                 </label>
