@@ -1,9 +1,9 @@
-import dataRu from './Ru/json/index';
-import dataEn from './En/json/index';
-import dataDe from './De/json/index';
-import generateRu from './Ru/utils/index';
-import generateEn from './En/utils/index';
-import generateDe from './De/utils/index';
+import dataRu from '../Ru/json/index';
+import dataEn from '../En/json/index';
+import dataDe from '../De/json/index';
+import generateRu from '../Ru/index';
+import generateEn from '../En/index';
+import generateDe from '../De/index';
 
 export const LOCALE = {
     RU: 'ru',

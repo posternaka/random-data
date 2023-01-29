@@ -1,6 +1,6 @@
-import { MAP_LOCALE } from './localizeUtils';
+import { MAP_LOCALE } from '../utils/localizeUtil';
 
-import { getErrorCount, ERROR_MAP } from './errorUtils';
+import { getErrorCount, ERROR_MAP } from '../utils/errorUtils';
 
 const ERROR_USER_KEY = ['fullName', 'address', 'phone'];
 
@@ -16,11 +16,6 @@ const addError = (user, errorCount, locale) => {
         const str = copyUser[ERROR_USER_KEY[strIndex]];
         copyUser[ERROR_USER_KEY[strIndex]] = func(str, user.index, errorIndex, locale);
         
-        // if (errorCount > 0) {
-        //     console.log(user.index, errorKey);
-        //     console.log(str);
-        //     console.log(copyUser[ERROR_USER_KEY[strIndex]]);
-        // }
         const bias = (errorIndex % ERROR_USER_KEY.length) === 0 ? 1 : 0;
         errorKey = (errorKey + 1 + bias) % Object.keys(ERROR_MAP).length;
         strIndex = (strIndex + 1) % ERROR_USER_KEY.length;

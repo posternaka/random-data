@@ -1,5 +1,5 @@
 import { useEffect, useRef, memo } from 'react';
-import { generateUsers } from './generateUsers';
+import { generateUsers } from '../generate/generateUsers';
 
 function checkVisible(elm) {
     var rect = elm.getBoundingClientRect();
@@ -26,16 +26,10 @@ const Users = ({ language, rangeNumber, randomNumber, page, allPage, setPage }) 
                 return;
             }
         }
-
         window.addEventListener('scroll', func);
-        
         return () => window.removeEventListener('scroll', func);
-
     }, []);
 
-
-
-    
   return (
     <>
         {

@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { randomInteger } from './helpers';
-import { LOCALE } from './localizeUtils';
-import Users from './Users';
+import { randomInteger } from './helpers/helpers';
+import { LOCALE } from './utils/localizeUtil';
+import Users from './components/Users';
 
 const App = () => {
     const [randomNumber, setRandomNumber] = useState(1);
     const [rangeNumber, setRangeNumber] = useState(0);
     const [language, setLanguage] = useState(LOCALE.RU);
     const [page, setPage] = useState(1);
-
+    
     const array = Array.from(Array(page + 1).keys()).slice(1);
 
     return (
@@ -31,7 +31,8 @@ const App = () => {
                 
                 <label>
                     <input className="input" type="number" min="1" placeholder="174" value={randomNumber} onChange={(e) => setRandomNumber(e.target.value)} />
-                    <button className="button" onClick={() => setRandomNumber(randomInteger())}>Random</button>
+                    <button className="button mr-5" onClick={() => setRandomNumber(randomInteger())}>Random</button>
+                    <button className="button" onClick={() => setRandomNumber(1)}>Reset</button>
                 </label>
             </div>
         

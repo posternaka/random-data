@@ -1,4 +1,4 @@
-import { MAP_LOCALE } from './localizeUtils';
+import { MAP_LOCALE } from './localizeUtil';
 
 export const getErrorCount = (userNumber, errorProbability) => {
     const integer = Math.trunc(errorProbability);

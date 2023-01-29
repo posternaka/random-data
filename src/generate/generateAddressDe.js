@@ -13,8 +13,6 @@ export const generateAddress = (startSeed, userNumber, { street, buildingNumber,
     const zipCodeRes = Math.floor((validUserNumber % streetLength % buildingNumberLength % secondaryAddressLength) / zipCodeLength);
     const cityNameRes = validUserNumber % streetLength % buildingNumberLength % secondaryAddressLength % zipCodeLength;
 
-    console.log(streetRes, buildingNumberRes, secondaryAddressRes, zipCodeRes, cityName[cityNameRes]);
-
     const func = FuncMap[userNumber % 2];
     return func(street[streetRes], buildingNumber[buildingNumberRes], secondaryAddress[secondaryAddressRes], zipCode[zipCodeRes], cityName[cityNameRes]);
 };
