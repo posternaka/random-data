@@ -1,15 +1,15 @@
 export const generateAddress = (startSeed, userNumber, { street, buildingNumber, secondaryAddress, zipCode, cityName }) => {
     const userIndex = startSeed + userNumber - 1;
     const allLength = (street.length * buildingNumber.length * secondaryAddress.length * zipCode.length * cityName.length);
-    const streetLength = allLength / secondaryAddress.length;
+    const streetLength = allLength / street.length;
     const buildingNumberLength = streetLength / buildingNumber.length;
-    const secondaryAddressLength = buildingNumberLength / street.length;
-    const zipCodeLength = streetLength / cityName.length;
+    const secondaryAddressLength = buildingNumberLength / secondaryAddress.length;
+    const zipCodeLength = secondaryAddressLength / zipCode.length;
 
     const validUserNumber = userIndex % allLength;
     const streetRes = Math.floor(validUserNumber / streetLength);
     const buildingNumberRes = Math.floor((validUserNumber % streetLength) / buildingNumberLength);
-    const secondaryAddressRes = Math.floor((validUserNumber % streetLength % buildingNumberLength) / streetLength);
+    const secondaryAddressRes = Math.floor((validUserNumber % streetLength % buildingNumberLength) / secondaryAddressLength);
     const zipCodeRes = Math.floor((validUserNumber % streetLength % buildingNumberLength % secondaryAddressLength) / zipCodeLength);
     const cityNameRes = validUserNumber % streetLength % buildingNumberLength % secondaryAddressLength % zipCodeLength;
 

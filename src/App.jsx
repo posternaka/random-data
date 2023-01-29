@@ -59,8 +59,7 @@ const App = () => {
                     <tr>
                         <th>№</th>
                         <th>Name</th>
-                        <th>City</th>
-                        <th>Street</th>
+                        <th>Address</th>
                         <th>Phone</th>
                     </tr>
                 </thead>
