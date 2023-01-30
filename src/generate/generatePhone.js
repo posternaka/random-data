@@ -1,45 +1,25 @@
+import { getParams } from '../helpers/getParams';
+
 export const generatePhoneDe = (startSeed, userNumber, {first, second, third, cod}) => {
     const userIndex = startSeed + userNumber - 1;
-    const allLength = (cod.length * first.length * second.length * third.length);
-    const codLength = allLength / cod.length; 
-    const firstLength = codLength / first.length;
-    const secondLength = firstLength / second.length;
+    
+    const [firstStr, secondStr, thirdStr, codStr] = getParams(userIndex, [first, second, third, cod]);
 
-    const validUserNumber = userIndex % allLength;
-    const codRes = Math.floor(validUserNumber / codLength);
-    const firstRes = Math.floor((validUserNumber % codLength) / firstLength);
-    const secondRes = Math.floor((validUserNumber % codLength % firstLength) / secondLength);
-    const thirdRes = validUserNumber % codLength % firstLength % secondLength;
-
-    return `+ (49 ${cod[codRes]}) ${first[firstRes]}${second[secondRes]}${third[thirdRes]}`;
+    return `+ (49 ${codStr}) ${firstStr}${secondStr}${thirdStr}`;
 }
 
 export const generatePhoneEn = (startSeed, userNumber, {first, second, cod}) => {
     const userIndex = startSeed + userNumber - 1;
-    const allLength = (cod.length * first.length * second.length);
-    const codLength = allLength / cod.length; 
-    const firstLength = codLength / first.length;
+    
+    const [firstStr, secondStr, codStr] = getParams(userIndex, [first, second, cod]);
 
-    const validUserNumber = userIndex % allLength;
-    const codRes = Math.floor(validUserNumber / codLength);
-    const firstRes = Math.floor((validUserNumber % codLength) / firstLength);
-    const secondRes = validUserNumber % codLength % firstLength;
-
-    return `+1 (${cod[codRes]}) ${first[firstRes]}${second[secondRes]}`;
+    return `+1 (${codStr}) ${firstStr}${secondStr}`;
 }
 
 export const generatePhoneRu = (startSeed, userNumber, {first, second, third, cod}) => {
     const userIndex = startSeed + userNumber - 1;
-    const allLength = (cod.length * first.length * second.length * third.length);
-    const codLength = allLength / cod.length; 
-    const firstLength = codLength / first.length;
-    const secondLength = firstLength / second.length;
+    
+    const [firstStr, secondStr, thirdStr, codStr] = getParams(userIndex, [first, second, third, cod]);
 
-    const validUserNumber = userIndex % allLength;
-    const codRes = Math.floor(validUserNumber / codLength);
-    const firstRes = Math.floor((validUserNumber % codLength) / firstLength);
-    const secondRes = Math.floor((validUserNumber % codLength % firstLength) / secondLength);
-    const thirdRes = validUserNumber % codLength % firstLength % secondLength;
-
-    return `+7 (${cod[codRes]}) ${first[firstRes]}${second[secondRes]}${third[thirdRes]}`;
+    return `+7 (${codStr}) ${firstStr}${secondStr}${thirdStr}`;
 }

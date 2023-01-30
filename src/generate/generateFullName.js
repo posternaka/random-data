@@ -1,18 +1,15 @@
-export const generateFullNameGeneral = (startSeed, userNumber, { firstName, lastName }) => {
-    const userIndex = startSeed + userNumber - 1;
-    const validNumber = userIndex % (firstName.length * lastName.length);
-    const firstNameIndex = Math.floor(validNumber / lastName.length);
-    const lastNameIndex = validNumber % lastName.length;
+import { getParams } from '../helpers/getParams';
 
-    return `${firstName[firstNameIndex]} ${lastName[lastNameIndex]}`;
+export const generateFullNameGeneral = (startSeed, userNumber, { firstName, lastName }) => {
+    const userIndex = startSeed + userNumber;
+    const [firstNameStr, lastNameStr] = getParams(userIndex, [firstName, lastName]);
+
+    return `${firstNameStr} ${lastNameStr}`;
 };
 
 export const generateFullNameSpecial = (startSeed, userNumber, { firstName, lastName, patronymic }) => {
     const userIndex = startSeed + userNumber - 1;
-    const validNumber = userIndex % (firstName.length * lastName.length);
-    const firstNameIndex = Math.floor(validNumber / firstName.length);
-    const lastNameIndex = Math.floor((validNumber % firstName.length) / lastName.length);
-    const patronymicIndex = validNumber % firstName.length % lastName.length;
+    const [firstNameStr, lastNameStr, patronymicStr] = getParams(userIndex, [firstName, lastName, patronymic]);
 
-    return `${firstName[firstNameIndex]} ${lastName[lastNameIndex]} ${patronymic[patronymicIndex]}`;
+    return `${firstNameStr} ${lastNameStr} ${patronymicStr}`;
 };

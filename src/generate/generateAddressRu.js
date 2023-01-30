@@ -1,22 +1,12 @@
+import { getParams } from '../helpers/getParams';
+
 export const generateAddress = (startSeed, userNumber, { state, cityName, streetSuffix, streetName, building, flat }) => {
     const userIndex = startSeed + userNumber - 1;
-    const allLength = (building.length * streetName.length * streetSuffix.length * state.length * cityName.length * flat.length);
-    const stateLength = allLength / state.length;
-    const cityNameLength = stateLength / cityName.length;
-    const streetSuffixLength = cityNameLength / streetSuffix.length;
-    const streetNameLength = streetSuffixLength / streetName.length;
-    const buildingLength = streetNameLength / building.length;
 
-    const validUserNumber = userIndex % allLength;
-    const stateRes = Math.floor(validUserNumber / stateLength);
-    const cityNameRes = Math.floor((validUserNumber % stateLength) / cityNameLength);
-    const streetSuffixRes = Math.floor((validUserNumber % stateLength % cityNameLength) / streetSuffixLength);
-    const streetNameRes = Math.floor((validUserNumber % stateLength % cityNameLength % streetSuffixLength) / streetNameLength);
-    const buildingRes = Math.floor((validUserNumber % stateLength % cityNameLength % streetSuffixLength % streetNameLength) / buildingLength);
-    const flatRes = validUserNumber % stateLength % cityNameLength % streetSuffixLength % streetNameLength % buildingLength;
-
+    const [stateStr, cityNameStr, streetSuffixStr, streetNameStr, buildingStr, flatStr] = getParams(userIndex, [state, cityName, streetSuffix, streetName, building, flat]);
+    
     const func = FuncMap[userNumber % 2];
-    return func(state[stateRes], cityName[cityNameRes], streetSuffix[streetSuffixRes], streetName[streetNameRes], building[buildingRes], flat[flatRes]);
+    return func(stateStr, cityNameStr, streetSuffixStr, streetNameStr, buildingStr, flatStr);
 };
 
 const evenUser = (state, cityName, streetSuffix, streetName, building, flat) => {

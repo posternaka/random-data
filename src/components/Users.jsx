@@ -38,6 +38,7 @@ const Users = ({ language, rangeNumber, randomNumber, page, allPage, setPage }) 
                     return (
                         <tr key={it.id} ref={ref}>
                             <td>{it.index}</td>
+                            <td>{it.id}</td>
                             <td>{it.fullName}</td>
                             <td>{it.address}</td>
                             <td>{it.phone}</td>
@@ -48,6 +49,7 @@ const Users = ({ language, rangeNumber, randomNumber, page, allPage, setPage }) 
                 return (
                     <tr key={it.id}>
                         <td>{it.index}</td>
+                        <td>{it.id}</td>
                         <td>{it.fullName}</td>
                         <td>{it.address}</td>
                         <td>{it.phone}</td>
